@@ -1,3 +1,4 @@
+# files to ignore
 api-key.txt
 /node_modules
 npm-debug.log
