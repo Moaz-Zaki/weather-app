@@ -11,7 +11,7 @@ on:                         # run this workflow on the following events
 
 jobs:
   
-    build and publish_image:
+    build_and_publish_image:
    
     runs-on: ubuntu-latest   # on the github VM
    
@@ -26,7 +26,7 @@ jobs:
         
         - name: push image to dockerhub
           run: | 
-            docker login -u mezozaki12 -p ${{secrets.TODOIST_PROJECT}} 
+            docker login -u mezozaki12 -p ${{secrets.WEATHER_APP_SECRET}} 
             docker push mezozaki12/weather_app:latest
 
 
