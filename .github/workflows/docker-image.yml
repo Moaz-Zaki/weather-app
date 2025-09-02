@@ -1,0 +1,33 @@
+#this is github action workflow file to build and publish a docker image to dockerhub
+name: Build & publish image to docker hub
+
+on:                         # run this workflow on the following events
+   [workflow_dispatch]      # manual trigger
+  
+#  on:
+#    push:
+#      branches:
+#         -main          # to trigger on push or pull
+
+jobs:
+  
+    build and publish_image:
+   
+    runs-on: ubuntu-latest   # on the github VM
+   
+    steps:
+
+        - name: Checkout code   # to reach docker file and app code 
+          uses: actions/checkout@v4
+        
+        - name: build image
+          run: docker build . -t mezozaki12/weather_app:latest
+
+        
+        - name: push image to dockerhub
+          run: | 
+            docker login -u mezozaki12 -p ${{secrets.TODOIST_PROJECT}} 
+            docker push mezozaki12/weather_app:latest
+
+
+       
