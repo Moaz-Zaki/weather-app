@@ -26,7 +26,7 @@ jobs:
         
         - name: push image to dockerhub
           run: | 
-            docker login -u mezozaki12 -p ${{secrets.WEATHER_APP_SECRET}} 
+            docker login -u mezozaki12 -p ${{ secrets.WEATHER_APP_SECRET }} 
             docker push mezozaki12/weather_app:latest
 
 
